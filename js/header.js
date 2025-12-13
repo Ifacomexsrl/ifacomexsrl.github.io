@@ -1,10 +1,9 @@
-/* js/header.js */
+/* js/header.js - VERSIÓN LIMPIA */
 
 const headerHTML = `
 <div class="nav-container">
     <a href="index.html" class="logo">
-        <img src="logos/nuevo_logo_f.png" alt="IFACOMEX" style="height: 50px; width: auto; margin-right: 10px;" onerror="this.style.display='none'">
-        Comercio <span style="color:var(--accent-color)">Exterior</span>
+        <img src="logos/nuevo_logo_f.png" alt="IFACOMEX" onerror="this.style.display='none'">
     </a>
     
     <div class="hamburger" onclick="toggleMenu()">
@@ -41,8 +40,7 @@ const headerHTML = `
                 <div class="lang-search-container">
                     <input type="text" class="lang-search-input" placeholder="Buscar idioma..." onkeyup="filterLanguages()" id="langSearch">
                 </div>
-                <ul class="lang-list" id="langList">
-                    </ul>
+                <ul class="lang-list" id="langList"></ul>
             </div>
 
             <div id="google_translate_element"></div>
@@ -57,7 +55,7 @@ function toggleMenu() {
     document.getElementById('navMenu').classList.toggle('active');
 }
 
-// --- LOGICA DE IDIOMAS ---
+// --- LÓGICA DE IDIOMAS Y TEMA OSCURO ---
 const languages = [
     { code: 'es', name: 'Español', flag: '🇪🇸' },
     { code: 'en', name: 'Inglés', flag: '🇺🇸' },
@@ -70,7 +68,6 @@ const languages = [
 ];
 
 const langList = document.getElementById('langList');
-
 if (langList) {
     languages.forEach(lang => {
         const li = document.createElement('li');
@@ -82,17 +79,12 @@ if (langList) {
 }
 
 function toggleLangMenu() {
-    const menu = document.getElementById('langDropdown');
-    const btn = document.getElementById('translateBtn');
-    if (menu && btn) {
-        menu.classList.toggle('active');
-        btn.classList.toggle('active');
-    }
+    document.getElementById('langDropdown').classList.toggle('active');
+    document.getElementById('translateBtn').classList.toggle('active');
 }
 
 function filterLanguages() {
-    const input = document.getElementById('langSearch');
-    const filter = input.value.toLowerCase();
+    const filter = document.getElementById('langSearch').value.toLowerCase();
     const li = langList.getElementsByTagName('li');
     for (let i = 0; i < li.length; i++) {
         const text = li[i].textContent || li[i].innerText;
@@ -106,16 +98,12 @@ function setLanguage(langCode, langName) {
         googleSelect.value = langCode;
         googleSelect.dispatchEvent(new Event("change"));
     }
-    const label = document.getElementById('currentLangLabel');
-    if (label) label.innerText = langName;
+    document.getElementById('currentLangLabel').innerText = langName;
     toggleLangMenu();
 }
 
 function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        autoDisplay: false
-    }, 'google_translate_element');
+    new google.translate.TranslateElement({ pageLanguage: 'es', autoDisplay: false }, 'google_translate_element');
 }
 
 (function() {
@@ -126,95 +114,46 @@ function googleTranslateElementInit() {
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleScript);
 })();
 
+// Cerrar menús al hacer clic fuera
 document.addEventListener('click', function(event) {
     const actions = document.querySelector('.header-actions');
-    const menu = document.getElementById('langDropdown');
-    const btn = document.getElementById('translateBtn');
-    
-    if (actions && !actions.contains(event.target) && menu && btn) {
-        menu.classList.remove('active');
-        btn.classList.remove('active');
+    if (actions && !actions.contains(event.target)) {
+        document.getElementById('langDropdown').classList.remove('active');
+        document.getElementById('translateBtn').classList.remove('active');
     }
 });
 
-/* =========================================
-   LOGICA: MODO OSCURO (DARK MODE)
-   ========================================= */
+// Modo Oscuro
 (function setupThemeToggle() {
     const btn = document.getElementById('themeToggle');
     if(!btn) return;
-    const icon = btn.querySelector('i');
     const body = document.body;
-
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
+    const icon = btn.querySelector('i');
+    
+    if (localStorage.getItem('theme') === 'dark') {
         body.setAttribute('data-theme', 'dark');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
+        icon.classList.replace('fa-moon', 'fa-sun');
     }
 
     btn.addEventListener('click', () => {
         if (body.hasAttribute('data-theme')) {
             body.removeAttribute('data-theme');
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
+            icon.classList.replace('fa-sun', 'fa-moon');
             localStorage.setItem('theme', 'light');
         } else {
             body.setAttribute('data-theme', 'dark');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
+            icon.classList.replace('fa-moon', 'fa-sun');
             localStorage.setItem('theme', 'dark');
         }
     });
 })();
 
-/* =========================================
-   SEO & METADATOS AUTOMÁTICOS
-   ========================================= */
+// Metadatos SEO
 (function setupSEO() {
-    const head = document.getElementsByTagName('head')[0];
-    const title = document.title;
-    const desc = document.querySelector('meta[name="description"]')?.content || "Despachantes de aduana, importación, exportación y logística internacional.";
-    const url = window.location.href;
-    const image = window.location.origin + "/logos/nuevo_logo_f.png"; 
-
-    const metaTags = [
-        { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: title },
-        { property: 'og:description', content: desc },
-        { property: 'og:image', content: image },
-        { property: 'og:url', content: url },
-        { property: 'og:site_name', content: 'IFACOMEX SRL' }
-    ];
-
-    metaTags.forEach(tag => {
-        if (!document.querySelector(`meta[property="${tag.property}"]`)) {
-            const meta = document.createElement('meta');
-            meta.setAttribute('property', tag.property);
-            meta.setAttribute('content', tag.content);
-            head.appendChild(meta);
-        }
-    });
-
-    const schema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "IFACOMEX SRL",
-        "image": image,
-        "description": desc,
-        "telephone": "+54 9 11 6599-0515",
-        "email": "ifa@ifacomexsrl.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "PERU 359 PISO 3 OF 307",
-            "addressLocality": "Ciudad Autónoma de Buenos Aires",
-            "addressCountry": "AR"
-        },
-        "url": window.location.origin
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(schema);
-    head.appendChild(script);
+    if (!document.querySelector('meta[property="og:title"]')) {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'og:title');
+        meta.setAttribute('content', document.title);
+        document.head.appendChild(meta);
+    }
 })();
