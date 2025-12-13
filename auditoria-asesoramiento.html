@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_audit_tab_title">Auditoría - IFACOMEX SRL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <div style="background: var(--primary-color); padding: 60px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 3rem;" data-i18n="page_audit_title">Auditoría y Asesoramiento</h1>
+        <p style="margin-top: 10px; opacity: 0.8;" data-i18n="page_audit_subtitle">Seguridad jurídica para tu negocio.</p>
+    </div>
+
+    <section class="section">
+        
+        <div style="text-align: center; max-width: 900px; margin: 0 auto 50px auto;">
+            <p style="font-size: 1.1rem; color: #4a5568;" data-i18n="audit_intro_text">
+                Más de 20 años de experiencia en múltiples industrias nos permite ofrecer una amplia capacidad en desarrollo de procesos, equipos y mejoras para incrementar su productividad y rentabilidad.
+            </p>
+        </div>
+
+        <div class="grid-cards">
+            
+            <div class="card visible hover-card">
+                <i class="fas fa-tasks card-icon"></i>
+                <h3 data-i18n="audit_card_1_title">Auditoría de Procesos</h3>
+                <p data-i18n="audit_card_1_desc">Mejora de procesos administrativos, operativos y control documental integral.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-procesos')">Leer más</button>
+                </div>
+            </div>
+
+            <div class="card visible hover-card">
+                <i class="fas fa-file-signature card-icon"></i>
+                <h3 data-i18n="audit_card_2_title">Registros e Inscripciones</h3>
+                <p data-i18n="audit_card_2_desc">Altas en Aduana, SENASA, RUCCA y gestión de reintegros de exportación.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-registros')">Leer más</button>
+                </div>
+            </div>
+
+            <div class="card visible hover-card">
+                <i class="fas fa-industry card-icon"></i>
+                <h3 data-i18n="audit_card_3_title">Habilitación de Planta</h3>
+                <p data-i18n="audit_card_3_desc">Gestión de carga en planta (RG2977), balanzas, cámaras y seguridad.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-planta')">Leer más</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; text-align: center; background: #f8fafc; padding: 40px; border-radius: 12px; border-left: 5px solid var(--accent-color);">
+            <p style="font-style: italic; font-weight: 500; color: var(--primary-color);" data-i18n="audit_outro_text">
+                "Aspiramos a consolidarnos como referentes en comercio exterior, acompañando, brindando a nuestros clientes las soluciones adecuadas y superando sus expectativas. Construyendo relaciones a largo plazo."
+            </p>
+        </div>
+    </section>
+
+    <div id="modal-procesos" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-procesos')">&times;</span>
+            <h3 data-i18n="audit_modal_1_title">Auditoría de Procesos</h3>
+            <p data-i18n="audit_modal_1_intro">Optimizamos su flujo de trabajo para garantizar eficiencia y cumplimiento:</p>
+            <ul>
+                <li data-i18n="audit_li_1">Auditoría de operaciones de comercio exterior para mejorar procesos administrativos y operativos (Importación/Exportación).</li>
+                <li data-i18n="audit_li_2">Auditoría de Procesos en Comercio Exterior.</li>
+                <li data-i18n="audit_li_3">Control de documentación integral.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-registros" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-registros')">&times;</span>
+            <h3 data-i18n="audit_modal_2_title">Registros e Inscripciones</h3>
+            <p data-i18n="audit_modal_2_intro">Gestionamos todas las altas necesarias para operar:</p>
+            <ul>
+                <li data-i18n="audit_li_4">Inscripción en Aduana (Importadores / Exportadores).</li>
+                <li data-i18n="audit_li_5">SENASA – Registro de rótulos e inscripción de nuevos productos.</li>
+                <li data-i18n="audit_li_6">RUCCA – Inscripciones.</li>
+                <li data-i18n="audit_li_7">Reintegros de Exportación: análisis y gestión de cobro.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-planta" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-planta')">&times;</span>
+            <h3 data-i18n="audit_modal_3_title">Gestión Operativa en Planta</h3>
+            <p data-i18n="audit_modal_3_intro">Asesoramiento técnico para habilitaciones y seguridad operativa:</p>
+            <ul>
+                <li data-i18n="audit_li_8">Gestión ante Aduana para la obtención de habilitación de Carga en planta (RG2977).</li>
+                <li data-i18n="audit_li_9">Habilitación de balanza fiscal, de corresponder.</li>
+                <li data-i18n="audit_li_10">Asesoramiento en procedimientos de cargas y delimitación de áreas según normativa vigente.</li>
+                <li data-i18n="audit_li_11">Filmaciones y colocación de cámaras de seguridad.</li>
+                <li data-i18n="audit_li_12">Contrato de fasón.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    
+    <div class="float-btn-container">
+        <a href="https://wa.me/5491130260109" target="_blank" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="float-btn chatbot-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <span data-i18n="chat_header_title">Asistente Virtual</span><span onclick="toggleChat()" style="cursor:pointer">✖</span>
+        </div>
+        <div class="chatbot-body" id="chat-body"><div class="message bot" data-i18n="chat_welcome">Hola</div></div>
+        <div class="chatbot-footer"><input type="text" id="chat-input" onkeypress="handleChat(event)"><button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button></div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script> <!--```
+
+*Nota: Si tenías lógica de chat dentro de `main.js`, debes borrar esa parte específica de `main.js` para que no haya conflicto (funciones duplicadas como `toggleChat` o `sendMessage`). Si prefieres, puedes simplemente pegar el código de arriba DENTRO de `js/main.js` reemplazando las funciones de chat viejas.*
+
+### Paso 3: ¿Cómo lo "entreno" más?
+Este método no requiere re-programar. Solo necesitas **editar las listas** en `js/chatbot.js`:
+
+1.  **Si quieres que sepa más de aduanas:** Agrega más objetos a la lista `tradeDictionary`:
+    ```javascript
+    {
+        keywords: ["simi", "sira", "licencia"],
+        response: "Gestionamos todo tipo de licencias de importación (SIRA/SEDI) para asegurar el ingreso de tu carga."
+    }
+    ```
+2.  **Si quieres que no hable de política o fútbol:** Como el código tiene el paso 4 ("Guardrail"), si alguien escribe "¿Quién ganó el mundial?", el bot buscará en sus listas, no encontrará nada y dirá: *"Lo siento, soy un asistente especializado exclusivamente en Comercio Exterior..."*.
+
+Esta es la forma más segura y controlada de tener un chatbot profesional que no "alucine" ni hable de temas fuera de lugar.-->
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-backdrop')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* css/containers.css - GUÍA DE CONTENEDORES */
+
+/* Botón Flotante Original (Oculto por el Toolbox) */
+.cont-float-btn {
+    position: fixed;
+    bottom: 310px; 
+    left: 30px;
+    z-index: 1999;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #ef4444; /* Rojo */
+    border-radius: 50%;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    display: none !important; /* Oculto */
+}
+
+/* Ventana Flotante */
+.cont-window {
+    position: fixed;
+    bottom: 100px; 
+    left: 90px;
+    width: 340px; /* Un poco más ancha para los datos */
+    height: 500px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    animation: slideInLeft 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f8fafc;
+    overflow: hidden;
+}
+
+/* Header */
+.cont-header {
+    padding: 15px;
+    background: rgba(239, 68, 68, 0.1); /* Rojo suave */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cont-header h3 {
+    font-size: 1rem;
+    color: #ef4444;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cont-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+.cont-close:hover { color: #fff; }
+
+/* Lista Scrollable */
+.cont-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.cont-list::-webkit-scrollbar { width: 5px; }
+.cont-list::-webkit-scrollbar-thumb { background: #7f1d1d; border-radius: 10px; }
+
+/* Tarjetas de Contenedores */
+.cont-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.cont-title {
+    background: rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #fca5a5;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.cont-data {
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.data-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-label {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.data-val {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Icono ilustrativo */
+.cont-icon {
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+    color: #334155;
+}
+
+/* Ajuste Móvil */
+@media (max-width: 768px) {
+    .cont-window {
+        bottom: 80px;
+        left: 20px;
+        width: 300px;
+    }
+}

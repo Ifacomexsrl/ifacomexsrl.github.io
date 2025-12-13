@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_weare_tab_title">Somos I/E - IFACOMEX SRL</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <div style="background: var(--primary-color); padding: 60px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 3rem;" data-i18n="page_weare_title">Somos Importadores / Exportadores</h1>
+        <p style="margin-top: 10px; opacity: 0.8;" data-i18n="page_weare_subtitle">Trading Company</p>
+    </div>
+
+    <section class="section">
+        <div class="grid-cards">
+            <div class="card visible">
+                <i class="fas fa-globe card-icon"></i>
+                <h3 data-i18n="weare_card_1_title">Búsqueda de Proveedores</h3>
+                <p data-i18n="weare_card_1_desc">Localizamos proveedores confiables en China, India, Europa y Mercosur.</p>
+            </div>
+            
+            <div class="card visible">
+                <i class="fas fa-hand-holding-usd card-icon"></i>
+                <h3 data-i18n="weare_card_2_title">Gestión de Compras</h3>
+                <p data-i18n="weare_card_2_desc">Actuamos como tu departamento de compras internacional, negociando precios.</p>
+            </div>
+            
+            <div class="card visible">
+                <i class="fas fa-warehouse card-icon"></i>
+                <h3 data-i18n="weare_card_3_title">Consolidación</h3>
+                <p data-i18n="weare_card_3_desc">Agrupamos mercaderías de diferentes proveedores para optimizar el flete.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    
+    <div class="float-btn-container">
+        <a href="https://wa.me/5491130260109" target="_blank" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="float-btn chatbot-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <span data-i18n="chat_header_title">Asistente Virtual</span>
+            <span onclick="toggleChat()" style="cursor:pointer">✖</span>
+        </div>
+        <div class="chatbot-body" id="chat-body">
+            <div class="message bot" data-i18n="chat_welcome">Hola, ¿en qué puedo ayudarte?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chat-input" placeholder="Escribe aquí..." data-i18n="chat_placeholder" onkeypress="handleChat(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script> <!--```
+
+*Nota: Si tenías lógica de chat dentro de `main.js`, debes borrar esa parte específica de `main.js` para que no haya conflicto (funciones duplicadas como `toggleChat` o `sendMessage`). Si prefieres, puedes simplemente pegar el código de arriba DENTRO de `js/main.js` reemplazando las funciones de chat viejas.*
+
+### Paso 3: ¿Cómo lo "entreno" más?
+Este método no requiere re-programar. Solo necesitas **editar las listas** en `js/chatbot.js`:
+
+1.  **Si quieres que sepa más de aduanas:** Agrega más objetos a la lista `tradeDictionary`:
+    ```javascript
+    {
+        keywords: ["simi", "sira", "licencia"],
+        response: "Gestionamos todo tipo de licencias de importación (SIRA/SEDI) para asegurar el ingreso de tu carga."
+    }
+    ```
+2.  **Si quieres que no hable de política o fútbol:** Como el código tiene el paso 4 ("Guardrail"), si alguien escribe "¿Quién ganó el mundial?", el bot buscará en sus listas, no encontrará nada y dirá: *"Lo siento, soy un asistente especializado exclusivamente en Comercio Exterior..."*.
+
+Esta es la forma más segura y controlada de tener un chatbot profesional que no "alucine" ni hable de temas fuera de lugar.-->
+</body>
+</html>

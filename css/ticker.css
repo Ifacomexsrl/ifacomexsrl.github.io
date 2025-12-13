@@ -1,0 +1,157 @@
+/* css/ticker.css - ESTILO BOLSA DE COMERCIO */
+
+.ticker-float-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* --- BOTÓN FLOTANTE (Pulsante) --- */
+.ticker-btn {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #4fc3f7;
+    border-radius: 50%;
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.ticker-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+    border-color: #4fc3f7;
+}
+
+/* Punto de notificación rojo (si está cerrado) */
+.ticker-btn::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #10b981; /* Verde "Online" */
+    border-radius: 50%;
+    border: 2px solid #0f172a;
+    animation: pulse-dot 2s infinite;
+}
+
+/* --- VENTANA POPUP (Estilo Tarjeta Trading) --- */
+.ticker-popup {
+    background: rgba(15, 23, 42, 0.95); /* Fondo oscuro casi opaco */
+    backdrop-filter: blur(10px); /* Efecto vidrio */
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    animation: slideUpFade 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Cabecera del Widget */
+.ticker-header {
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticker-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Indicador de "En Vivo" */
+.live-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+}
+
+/* Cuerpo de Cotizaciones */
+.ticker-body {
+    padding: 10px 0;
+}
+
+.ticker-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    transition: background 0.2s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.ticker-row:last-child { border-bottom: none; }
+.ticker-row:hover { background: rgba(255, 255, 255, 0.05); }
+
+.ticker-currency {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.currency-flag {
+    font-size: 1.2rem;
+}
+
+/* Valores numéricos tipo "Display" */
+.ticker-amount {
+    font-family: 'Consolas', 'Monaco', monospace; /* Fuente monoespaciada */
+    font-weight: 700;
+    color: #4ade80; /* Verde financiero */
+    font-size: 1.1rem;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+}
+
+/* Footer del Widget */
+.ticker-footer {
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 0.7rem;
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animaciones */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulse-dot {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}

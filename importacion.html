@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_import_tab_title">Importación - IFACOMEX SRL</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <div style="background: var(--primary-color); padding: 60px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 3rem;" data-i18n="page_import_title">Soluciones de Importación</h1>
+    </div>
+
+    <section class="section">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">
+            <p style="font-size: 1.1rem; color: #4a5568;" data-i18n="import_intro_text">
+                La operativa de importación se desarrolla en un ambiente muy cambiante, lo que nos lleva a estar en constante capacitación para dar respuesta certera e inmediata en cada consulta.
+            </p>
+        </div>
+
+        <div class="grid-cards">
+            
+            <div class="card visible hover-card">
+                <i class="fas fa-balance-scale card-icon"></i>
+                <h3 data-i18n="import_card_1_title">Normativa y Gestión</h3>
+                <p data-i18n="import_card_1_desc">Asesoramiento integral sobre nomenclatura, gestión SEDI y licencias.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-normativa')">Leer más</button>
+                </div>
+            </div>
+
+            <div class="card visible hover-card">
+                <i class="fas fa-certificate card-icon"></i>
+                <h3 data-i18n="import_card_2_title">Certificaciones Oficiales</h3>
+                <p data-i18n="import_card_2_desc">Tramitación ante INAL, SENASA, Seguridad Eléctrica y regímenes especiales.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-certificados')">Leer más</button>
+                </div>
+            </div>
+
+            <div class="card visible hover-card">
+                <i class="fas fa-truck-moving card-icon"></i>
+                <h3 data-i18n="import_card_3_title">Logística Integral</h3>
+                <p data-i18n="import_card_3_desc">Coordinación de fletes, seguros, custodia y entrega al cliente final.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-logistica')">Leer más</button>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 50px;">
+            <h2 data-i18n="import_license_title">Régimen de Licencias</h2>
+            <p data-i18n="import_license_desc">Gestionamos Licencias Automáticas (LA), No Automáticas (LNA) y autorizaciones ante terceros organismos.</p>
+        </div>
+    </section>
+
+    <div id="modal-normativa" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-normativa')">&times;</span>
+            <h3 data-i18n="import_modal_1_title">Normativa y Gestión</h3>
+            <p data-i18n="import_modal_1_intro">La variedad en nuestros clientes nos da la posibilidad de brindar mayores servicios, destacando:</p>
+            <ul>
+                <li data-i18n="import_li_1">Asesoramiento integral sobre la nomenclatura y normativa aplicable.</li>
+                <li data-i18n="import_li_2">Gestión SEDI y Anexos para Licencias no Automáticas.</li>
+                <li data-i18n="import_li_3">Coordinación y seguimiento de embarques.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-certificados" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-certificados')">&times;</span>
+            <h3 data-i18n="import_modal_2_title">Certificaciones y Regímenes</h3>
+            <p data-i18n="import_modal_2_intro">Tramitación y obtención de certificados ante organismos oficiales:</p>
+            <ul>
+                <li>Instituto Nacional de Alimentos (INAL).</li>
+                <li data-i18n="import_li_4">Certificados de libre circulación.</li>
+                <li>SENASA.</li>
+                <li data-i18n="import_li_5">Secretaría de Industria y Comercio (Certificación de Seguridad Eléctrica).</li>
+            </ul>
+            <p><strong data-i18n="import_modal_2_subtitle">Regímenes Especiales:</strong></p>
+            <ul>
+                <li data-i18n="import_li_6">Reimportación.</li>
+                <li data-i18n="import_li_7">Envío y recepción de muestras.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-logistica" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-logistica')">&times;</span>
+            <h3 data-i18n="import_modal_3_title">Logística y Fletes</h3>
+            <p data-i18n="import_modal_3_intro">Nos encargamos del movimiento físico y seguridad de su carga:</p>
+            <ul>
+                <li data-i18n="import_li_8">Fletes Internacionales Aéreos, Marítimos y Terrestres. Gestionamos su flete internacional y nacional acercándole distintas cotizaciones para su evaluación.</li>
+                <li data-i18n="import_li_9">Logística para la entrega de mercadería a clientes finales.</li>
+                <li data-i18n="import_li_10">Seguros de Carga Internacional.</li>
+                <li data-i18n="import_li_11">Custodia para traslado de mercadería hacia su destino final.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    
+    <div class="float-btn-container">
+        <a href="https://wa.me/5491130260109" target="_blank" class="float-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <div class="float-btn chatbot-toggle" onclick="toggleChat()"><i class="fas fa-comments"></i></div>
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <span data-i18n="chat_header_title">Asistente Virtual</span><span onclick="toggleChat()" style="cursor:pointer">✖</span>
+        </div>
+        <div class="chatbot-body" id="chat-body"><div class="message bot" data-i18n="chat_welcome">Hola</div></div>
+        <div class="chatbot-footer"><input type="text" id="chat-input" onkeypress="handleChat(event)"><button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button></div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script> <!--```
+
+*Nota: Si tenías lógica de chat dentro de `main.js`, debes borrar esa parte específica de `main.js` para que no haya conflicto (funciones duplicadas como `toggleChat` o `sendMessage`). Si prefieres, puedes simplemente pegar el código de arriba DENTRO de `js/main.js` reemplazando las funciones de chat viejas.*
+
+### Paso 3: ¿Cómo lo "entreno" más?
+Este método no requiere re-programar. Solo necesitas **editar las listas** en `js/chatbot.js`:
+
+1.  **Si quieres que sepa más de aduanas:** Agrega más objetos a la lista `tradeDictionary`:
+    ```javascript
+    {
+        keywords: ["simi", "sira", "licencia"],
+        response: "Gestionamos todo tipo de licencias de importación (SIRA/SEDI) para asegurar el ingreso de tu carga."
+    }
+    ```
+2.  **Si quieres que no hable de política o fútbol:** Como el código tiene el paso 4 ("Guardrail"), si alguien escribe "¿Quién ganó el mundial?", el bot buscará en sus listas, no encontrará nada y dirá: *"Lo siento, soy un asistente especializado exclusivamente en Comercio Exterior..."*.
+
+Esta es la forma más segura y controlada de tener un chatbot profesional que no "alucine" ni hable de temas fuera de lugar.-->
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-backdrop')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

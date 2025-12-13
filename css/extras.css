@@ -1,0 +1,140 @@
+/* css/extras.css - FUNCIONALIDADES ADICIONALES */
+
+/* --- 1. AVISO DE COOKIES (GDPR) --- */
+.cookie-consent-modal {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%); /* Centrado */
+    width: 90%;
+    max-width: 500px;
+    background: rgba(15, 23, 42, 0.95); /* Color corporativo oscuro */
+    color: #f8fafc;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    z-index: 10000; /* Por encima de todo */
+    display: none; /* Oculto por defecto, JS lo activa */
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    animation: floatUp 0.5s ease;
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cookie-text h4 {
+    margin-bottom: 5px;
+    color: #4fc3f7; /* Azul cian */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cookie-text p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-cookie-accept {
+    background: #4fc3f7;
+    color: #0f172a;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: transform 0.2s;
+}
+
+.btn-cookie-accept:hover {
+    transform: scale(1.05);
+    background: #fff;
+}
+
+.btn-cookie-deny {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #94a3b8;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.btn-cookie-deny:hover {
+    border-color: #cbd5e1;
+    color: #cbd5e1;
+}
+
+/* --- 2. BOTÓN SCROLL TO TOP --- */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 100px; /* Un poco arriba del chatbot */
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--secondary-color); /* Usa variable del sistema */
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1999; /* Debajo del ticker y chatbot */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Modo activo (visible) */
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Soporte para Dark Mode automático */
+[data-theme="dark"] .scroll-top-btn {
+    background: rgba(255,255,255,0.1);
+}
+
+@keyframes floatUp {
+    from { opacity: 0; transform: translate(-50%, 20px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .cookie-consent-modal {
+        width: 95%;
+        bottom: 10px;
+    }
+    .scroll-top-btn {
+        bottom: 90px;
+        right: 20px;
+    }
+}

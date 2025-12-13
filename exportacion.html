@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_export_tab_title">Exportación - IFACOMEX SRL</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <div style="background: var(--primary-color); padding: 60px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 3rem;" data-i18n="page_export_main_title">Servicios de Exportación</h1>
+    </div>
+
+    <section class="section">
+        <div class="grid-cards">
+            
+            <div class="card visible hover-card">
+                <i class="fas fa-brain card-icon"></i> <h3>Operativa Integral</h3>
+                <p>Asesoramiento experto y seguimiento exhaustivo desde el inicio hasta el destino final.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-operativa')">Leer más</button>
+                </div>
+            </div>
+
+            <div class="card visible hover-card">
+                <i class="fas fa-plane-departure card-icon"></i>
+                <h3>Logística y Fletes</h3>
+                <p>Coordinación de embarques aéreos, marítimos y terrestres con las mejores cotizaciones.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-logistica')">Leer más</button>
+                </div>
+            </div>
+
+            <div class="card visible hover-card">
+                <i class="fas fa-file-contract card-icon"></i>
+                <h3>Documentación</h3>
+                <p>Gestión ante organismos oficiales y confección precisa de documentos internacionales.</p>
+                
+                <div class="card-overlay">
+                    <button class="btn-read-more" onclick="openModal('modal-documentacion')">Leer más</button>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 50px;">
+            <h2 data-i18n="export_process_sub_title">Proceso de Exportación</h2>
+            <p data-i18n="export_process_sub_desc">Acompañamos a tu empresa desde la orden de compra hasta la entrega en destino, garantizando el cumplimiento de todas las normativas vigentes.</p>
+        </div>
+    </section>
+
+    <div id="modal-operativa" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-operativa')">&times;</span>
+            <h3>Operativa y Asesoramiento</h3>
+            <p>La operativa de exportación es uno de nuestros fuertes. Es sumamente dinámica y requiere un seguimiento exhaustivo, en principio hasta que la mercadería se encuentre en el medio de transporte y luego hasta su destino final.</p>
+            <p>Contamos con un grupo de trabajo que se encuentra en permanente capacitación, acorde a las actualizaciones normativas aplicables y de acuerdo con las exigencias que cada operación demande, con el fin de brindar un servicio de calidad y excelencia.</p>
+            <ul>
+                <li>Asesoramiento en aspectos generales de la operación.</li>
+                <li>Clasificación arancelaria precisa.</li>
+                <li>Envíos y recepción de muestras comerciales.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-logistica" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-logistica')">&times;</span>
+            <h3>Logística y Fletes</h3>
+            <p>Optimizamos el movimiento físico de su mercadería, asegurando tiempos y costos competitivos.</p>
+            <ul>
+                <li><strong>Fletes Internacionales:</strong> Aéreos, Marítimos y Terrestres. Gestionamos su flete internacional y nacional acercándole distintas cotizaciones para su evaluación.</li>
+                <li>Coordinación de embarques complejos.</li>
+                <li>Cargas de container completos (FCL) como también consolidados (LCL).</li>
+                <li>Coordinación con empresas de control y fumigación.</li>
+                <li>Gestión de seguros (Cauciones) y seguridad (Custodias) para la carga.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-documentacion" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-documentacion')">&times;</span>
+            <h3>Gestión Documental</h3>
+            <p>La precisión en la documentación es clave para evitar demoras y multas en aduana. Nos encargamos de toda la burocracia por usted.</p>
+            <ul>
+                <li><strong>Gestión ante organismos:</strong> Tramitación ante INAL/ANMAT, IASCAV, SENASA, INV, CENEA.</li>
+                <li>Gestión de Cuotas de Exportación MAGYP (Hilton, Grain Fed ex 481, Cuota USA, etc).</li>
+                <li>Confección de documentación para el exterior: Packing list, certificado de origen, declaración de carga, Bill of Lading, AWB, CRT.</li>
+                <li>Revisión exhaustiva de documentación que acompaña la carga.</li>
+                <li>Gestión de Reintegros de exportación.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    
+    <div class="float-btn-container">
+        <a href="https://wa.me/5491130260109" target="_blank" class="float-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <div class="float-btn chatbot-toggle" onclick="toggleChat()"><i class="fas fa-comments"></i></div>
+    </div>
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header"><span>Asistente Virtual</span><span onclick="toggleChat()" style="cursor:pointer">✖</span></div>
+        <div class="chatbot-body" id="chat-body"><div class="message bot" data-i18n="chat_welcome">Hola</div></div>
+        <div class="chatbot-footer"><input type="text" id="chat-input" onkeypress="handleChat(event)"><button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button></div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script> <!--```
+
+*Nota: Si tenías lógica de chat dentro de `main.js`, debes borrar esa parte específica de `main.js` para que no haya conflicto (funciones duplicadas como `toggleChat` o `sendMessage`). Si prefieres, puedes simplemente pegar el código de arriba DENTRO de `js/main.js` reemplazando las funciones de chat viejas.*
+
+### Paso 3: ¿Cómo lo "entreno" más?
+Este método no requiere re-programar. Solo necesitas **editar las listas** en `js/chatbot.js`:
+
+1.  **Si quieres que sepa más de aduanas:** Agrega más objetos a la lista `tradeDictionary`:
+    ```javascript
+    {
+        keywords: ["simi", "sira", "licencia"],
+        response: "Gestionamos todo tipo de licencias de importación (SIRA/SEDI) para asegurar el ingreso de tu carga."
+    }
+    ```
+2.  **Si quieres que no hable de política o fútbol:** Como el código tiene el paso 4 ("Guardrail"), si alguien escribe "¿Quién ganó el mundial?", el bot buscará en sus listas, no encontrará nada y dirá: *"Lo siento, soy un asistente especializado exclusivamente en Comercio Exterior..."*.
+
+Esta es la forma más segura y controlada de tener un chatbot profesional que no "alucine" ni hable de temas fuera de lugar.-->
+    
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+        // Cerrar si se hace click fuera del contenido
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-backdrop')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

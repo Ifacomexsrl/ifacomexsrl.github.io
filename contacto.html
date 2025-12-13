@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_contact_tab_title">Contacto - IFACOMEX SRL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <section class="section">
+        <h1 class="section-title" data-i18n="page_contact_title">Contáctanos</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+            
+            <div style="flex: 1; min-width: 300px; max-width: 600px;">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Gracias por tu mensaje. Nos contactaremos pronto.');">
+                    <div class="form-group">
+                        <label data-i18n="form_name">Nombre Completo</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="form_company">Empresa</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="form_email">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="form_message">Mensaje</label>
+                        <textarea class="form-control" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-cta" style="border:none; cursor:pointer;" data-i18n="form_send">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <div style="flex: 1; min-width: 300px;">
+                <div class="card" style="opacity:1; transform:none; height: 100%;">
+                    <h3 data-i18n="office_title">Nuestras Oficinas</h3>
+                    <p style="margin-bottom: 20px;" data-i18n="office_desc">Visítanos para una atención personalizada.</p>
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.684695252462!2d-58.377415723557554!3d-34.61213377295117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccad4594170c7%3A0xdf893f3e20bc978d!2sPer%C3%BA%20359%20PISO%203%20OF%20307%2C%20C1067AAG%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1764942259309!5m2!1ses!2sar" width="460" height="310" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <div style="margin-top: 20px;">
+                        <p><strong><i class="fas fa-envelope"></i></strong> ifa@ifacomexsrl.com</p>
+                        <p><strong><i class="fas fa-phone"></i></strong> +54 9 11 6599-0515</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    
+    <div class="float-btn-container">
+        <a href="https://wa.me/5491130260109" target="_blank" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="float-btn chatbot-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+    
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <span data-i18n="chat_header_title">Asistente Virtual IFACOMEX</span>
+            <span onclick="toggleChat()" style="cursor:pointer">✖</span>
+        </div>
+        <div class="chatbot-body" id="chat-body">
+            <div class="message bot" data-i18n="chat_welcome">Hola, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chat-input" placeholder="Escribe aquí..." data-i18n="chat_placeholder" onkeypress="handleChat(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script> <!--```
+
+*Nota: Si tenías lógica de chat dentro de `main.js`, debes borrar esa parte específica de `main.js` para que no haya conflicto (funciones duplicadas como `toggleChat` o `sendMessage`). Si prefieres, puedes simplemente pegar el código de arriba DENTRO de `js/main.js` reemplazando las funciones de chat viejas.*
+
+### Paso 3: ¿Cómo lo "entreno" más?
+Este método no requiere re-programar. Solo necesitas **editar las listas** en `js/chatbot.js`:
+
+1.  **Si quieres que sepa más de aduanas:** Agrega más objetos a la lista `tradeDictionary`:
+    ```javascript
+    {
+        keywords: ["simi", "sira", "licencia"],
+        response: "Gestionamos todo tipo de licencias de importación (SIRA/SEDI) para asegurar el ingreso de tu carga."
+    }
+    ```
+2.  **Si quieres que no hable de política o fútbol:** Como el código tiene el paso 4 ("Guardrail"), si alguien escribe "¿Quién ganó el mundial?", el bot buscará en sus listas, no encontrará nada y dirá: *"Lo siento, soy un asistente especializado exclusivamente en Comercio Exterior..."*.
+
+Esta es la forma más segura y controlada de tener un chatbot profesional que no "alucine" ni hable de temas fuera de lugar.-->
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_about_tab_title">Nosotros - IFACOMEX SRL</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <div style="background: var(--primary-color); padding: 60px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 3rem;" data-i18n="page_about_title">Sobre Nosotros</h1>
+        <p style="margin-top: 10px; opacity: 0.8;" data-i18n="page_about_subtitle">Historia y valores.</p>
+    </div>
+
+    <section class="section">
+        <div style="display: flex; gap: 40px; flex-wrap: wrap; align-items: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="img/nosotros.avif" alt="Equipo IFACOMEX" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            </div>
+            
+            <div style="flex: 1; min-width: 300px;">
+                <h2 data-i18n="about_hist_title">Nuestra empresa</h2>
+                <p data-i18n="about_hist_desc">Dada nuestra experiencia individual en el área de Comercio Exterior, tuvimos la oportunidad de desarrollarnos en forma independiente, es por ello que hace más de 20 años decidimos crear IFACOMEX SRL.
+
+                Tenemos pasión por el trabajo diario y nuestro objetivo es poder brindar asesoramiento, responder con idoneidad,profesionalismo y honestidad cada una de las inquietudes de nuestros clientes.
+
+                IFACOMEX SRL es una empresa familiar que se basa en la atención personalizada de los clientes, donde cada operación constituye un nuevo desafío, en el que volcamos toda nuestra expertiz para que llegue “a buen puerto “.
+
+                Somos Despachantes de Aduana y podemos operar en todas las aduanas del país.</p>
+                <br>
+                
+                <h3 data-i18n="about_mission_title">Misión</h3>
+                <p data-i18n="about_mission_desc">Brindar servicios de excelencia que permitan a nuestros clientes expandir sus fronteras.</p>
+                <br>
+                
+                <h3 data-i18n="about_vision_title">Visión</h3>
+                <p data-i18n="about_vision_desc">Ser el socio logístico líder en innovación tecnológica y calidad humana.</p>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer id="main-footer"></footer>
+    
+    <div class="float-btn-container">
+        <a href="https://wa.me/5491130260109" target="_blank" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="float-btn chatbot-toggle" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <span data-i18n="chat_header_title">Asistente Virtual</span>
+            <span onclick="toggleChat()" style="cursor:pointer">✖</span>
+        </div>
+        <div class="chatbot-body" id="chat-body">
+            <div class="message bot" data-i18n="chat_welcome">Hola, ¿en qué puedo ayudarte?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chat-input" placeholder="Escribe aquí..." data-i18n="chat_placeholder" onkeypress="handleChat(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script> <!--```
+
+*Nota: Si tenías lógica de chat dentro de `main.js`, debes borrar esa parte específica de `main.js` para que no haya conflicto (funciones duplicadas como `toggleChat` o `sendMessage`). Si prefieres, puedes simplemente pegar el código de arriba DENTRO de `js/main.js` reemplazando las funciones de chat viejas.*
+
+### Paso 3: ¿Cómo lo "entreno" más?
+Este método no requiere re-programar. Solo necesitas **editar las listas** en `js/chatbot.js`:
+
+1.  **Si quieres que sepa más de aduanas:** Agrega más objetos a la lista `tradeDictionary`:
+    ```javascript
+    {
+        keywords: ["simi", "sira", "licencia"],
+        response: "Gestionamos todo tipo de licencias de importación (SIRA/SEDI) para asegurar el ingreso de tu carga."
+    }
+    ```
+2.  **Si quieres que no hable de política o fútbol:** Como el código tiene el paso 4 ("Guardrail"), si alguien escribe "¿Quién ganó el mundial?", el bot buscará en sus listas, no encontrará nada y dirá: *"Lo siento, soy un asistente especializado exclusivamente en Comercio Exterior..."*.
+
+Esta es la forma más segura y controlada de tener un chatbot profesional que no "alucine" ni hable de temas fuera de lugar.-->
+</body>
+</html>
