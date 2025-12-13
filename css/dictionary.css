@@ -1,0 +1,124 @@
+/* css/dictionary.css - GLOSARIO COMEX */
+
+/* Botón Flotante Original (Oculto) */
+.dict-float-btn {
+    position: fixed;
+    bottom: 520px; 
+    left: 30px;
+    z-index: 1999;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #84cc16; /* Lima */
+    border-radius: 50%;
+    border: 1px solid rgba(132, 204, 22, 0.3);
+    display: none !important; 
+}
+
+/* Ventana Flotante */
+.dict-window {
+    position: fixed;
+    bottom: 100px; 
+    left: 90px;
+    width: 320px;
+    height: 500px; /* Alto fijo para scroll */
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    animation: slideInLeft 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f8fafc;
+    overflow: hidden;
+}
+
+/* Header */
+.dict-header {
+    padding: 15px;
+    background: rgba(132, 204, 22, 0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dict-header h3 {
+    font-size: 1rem;
+    color: #a3e635;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dict-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+.dict-close:hover { color: #fff; }
+
+/* Buscador */
+.dict-search-box {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dict-input {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.dict-input:focus { border-color: #84cc16; }
+
+/* Lista */
+.dict-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 15px;
+}
+
+.dict-list::-webkit-scrollbar { width: 5px; }
+.dict-list::-webkit-scrollbar-thumb { background: #3f6212; border-radius: 10px; }
+
+/* Items */
+.dict-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.dict-term {
+    color: #bef264;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.95rem;
+}
+
+.dict-def {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Ajuste Móvil */
+@media (max-width: 768px) {
+    .dict-window {
+        bottom: 80px;
+        left: 20px;
+        width: 300px;
+    }
+}
