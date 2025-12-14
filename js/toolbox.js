@@ -11,13 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <i class="fas fa-th-large"></i>
             </div>
 
-            <div class="toolbox-item btn-tool-dict" onclick="triggerTool('dict', event)" data-tooltip="Glosario Comex">
-                <i class="fas fa-atlas"></i>
-            </div>
-
-            <div class="toolbox-item btn-tool-clock" onclick="triggerTool('clock', event)" data-tooltip="Hora Mundial">
-                <i class="far fa-clock"></i>
-            </div>
+           
 
             <div class="toolbox-item btn-tool-conv" onclick="triggerTool('conv', event)" data-tooltip="Conversor Unidades">
                 <i class="fas fa-exchange-alt"></i>
@@ -48,6 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.insertAdjacentHTML('beforeend', toolboxHTML);
 });
 
+// por si quiero agregar estas herramientas
+
+//<div class="toolbox-item btn-tool-dict" onclick="triggerTool('dict', event)" data-tooltip="Glosario Comex">
+//                <i class="fas fa-atlas"></i>
+//            </div>
+//          <div class="toolbox-item btn-tool-clock" onclick="triggerTool('clock', event)" data-tooltip="Hora Mundial">
+//                <i class="far fa-clock"></i>
+//          </div>
+
 /* Configuración de Herramientas */
 const toolsConfig = {
     'ticker':  { id: 'tickerPopup',   func: 'toggleTicker' },
@@ -56,8 +59,8 @@ const toolsConfig = {
     'inco':    { id: 'incoWindow',    func: 'toggleIncoterms' },
     'cont':    { id: 'contWindow',    func: 'toggleContainers' },
     'conv':    { id: 'convWindow',    func: 'toggleConverter' },
-    'clock':   { id: 'clockWindow',   func: 'toggleClock' },
-    'dict':    { id: 'dictWindow',    func: 'toggleDictionary' }
+  //  'clock':   { id: 'clockWindow',   func: 'toggleClock' },
+  //  'dict':    { id: 'dictWindow',    func: 'toggleDictionary' }
 };
 
 // Abrir/Cerrar Menú

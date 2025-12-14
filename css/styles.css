@@ -325,3 +325,58 @@ footer { background: var(--primary-color); color: #94a3b8; padding: 80px 20px 20
     .slide-title { font-size: 2.2rem; }
     .slide-desc { font-size: 1rem; }
 }
+
+/* =========================================
+   FIX MAPA RESPONSIVO (CONTACTO)
+   ========================================= */
+
+/* Seleccionamos cualquier iframe que contenga un mapa de Google */
+iframe[src*="google.com/maps"] {
+    width: 100% !important;       /* Fuerza a ocupar el ancho del contenedor */
+    max-width: 100% !important;   /* Asegura que no se pase del límite */
+    height: 300px;                /* Altura fija para que no sea enorme en móvil */
+    border-radius: 10px;          /* Bordes redondeados para que combine con la tarjeta */
+    border: none;                 /* Quita el borde gris feo por defecto */
+    display: block;               /* Evita espacios extra abajo */
+    margin: 10px 0;               /* Un poco de aire arriba y abajo */
+}
+
+/* Opcional: Si el contenedor del mapa tiene padding y quieres que el mapa llegue al borde */
+/* (Solo úsalo si ves que el mapa queda muy "apretado" adentro) */
+/*
+.map-container {
+    overflow: hidden; 
+    border-radius: 10px;
+}
+*/
+
+/* =========================================
+   FIX DEFINITIVO MAPA (PC Y MÓVIL)
+   ========================================= */
+
+.map-container {
+    position: relative;        /* Mantiene los puntos dentro */
+    width: 100%;               /* Ancho completo disponible */
+    max-width: 1100px;         /* PC: Evita que sea infinito, lo mantiene elegante */
+    margin: 0 auto !important; /* PC: LO CENTRA (Esto arregla lo que rompí) */
+    
+    height: auto !important;   /* MÓVIL: La altura depende de la imagen */
+    min-height: 0 !important;  /* MÓVIL: Evita alturas mínimas heredadas */
+    
+    padding: 0;
+    font-size: 0;              /* TRUCO MAESTRO: Elimina espacio blanco fantasma debajo de la imagen */
+    line-height: 0;            /* Refuerzo para eliminar espacios */
+    overflow: hidden;          /* Corta cualquier desborde */
+}
+
+.world-map-img {
+    width: 100%;               /* La imagen llena el contenedor */
+    height: auto !important;   /* La altura es proporcional (no se estira) */
+    display: block;            /* Comportamiento de bloque sólido */
+}
+
+/* Ajuste fino del pin */
+#tech-marker {
+    /* Asegura que la punta del pin señale la coordenada exacta */
+    transform: translate(-50%, -100%); 
+}
